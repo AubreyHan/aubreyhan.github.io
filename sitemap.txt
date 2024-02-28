@@ -1,3 +1,4 @@
+https://aubreyhan.net/posts/ee23d062.html
 https://aubreyhan.net/posts/772a81d8.html
 https://aubreyhan.net/categories/index.html
 https://aubreyhan.net/tags/index.html
@@ -6,3 +7,5 @@ https://aubreyhan.net/about/index.html
 https://aubreyhan.net/home/index.html
 https://aubreyhan.net/posts/16107.html
 https://aubreyhan.net/
+https://aubreyhan.net/tags/tag01-tag02/
+https://aubreyhan.net/categories/cat01-cat02/
