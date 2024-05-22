@@ -1,3 +1,4 @@
+https://aubreyhan.net/posts/a1016c86.html
 https://aubreyhan.net/posts/7e702d3c.html
 https://aubreyhan.net/posts/6253a717.html
 https://aubreyhan.net/categories/index.html
@@ -9,5 +10,8 @@ https://aubreyhan.net/
 https://aubreyhan.net/tags/GCP/
 https://aubreyhan.net/tags/%E7%BD%91%E7%BB%9C/
 https://aubreyhan.net/tags/%E5%AD%98%E5%82%A8/
+https://aubreyhan.net/tags/GKE/
 https://aubreyhan.net/categories/%E6%8A%80%E6%9C%AF/
 https://aubreyhan.net/categories/%E6%8A%80%E6%9C%AF/%E4%BA%91%E8%AE%A1%E7%AE%97/
+https://aubreyhan.net/categories/GCP/
+https://aubreyhan.net/categories/GCP/GKE/
