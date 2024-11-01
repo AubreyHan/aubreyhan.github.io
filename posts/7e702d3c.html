@@ -26,41 +26,41 @@
 <meta property="og:site_name" content="Reid爸的小菜地">
 <meta property="og:description" content="&emsp;&emsp;对象存储作为云计算infra的基础，有着广泛的用途，GCP上提供的对象存储——gcs也不例外。&emsp;&emsp;但是，gcs的使用通常要通过sdk或者http client调用，增删改查等常规文件操作很不方便。gcsfuse作为GCP提供的小工具，可以将gcs挂载到本地，当作本地文件系统进行操作，大大方便了gcs的使用。&emsp;&emsp;下边就简单聊聊gcsfu">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100414080562.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100416084861.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100417821805.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100422906570.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101196088052.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101305569933.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101351009637.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101354798834.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101359814264.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101360919781.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104159923212.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104167804143.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104171325069.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104173915412.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104177183955.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104178525507.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104607049046.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104609731371.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104609955763.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104611530911.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104614299229.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104637348965.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104637748205.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104627518314.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104638399133.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104660006877.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104660911139.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104662006461.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17100414080562.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17100416084861.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17100417821805.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17100422906570.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101196088052.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101305569933.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101351009637.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101354798834.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101359814264.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17101360919781.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104159923212.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104167804143.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104171325069.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104173915412.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104177183955.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104178525507.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104607049046.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104609731371.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104609955763.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104611530911.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104614299229.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104637348965.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104637748205.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104627518314.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104638399133.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104660006877.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104660911139.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17104662006461.jpg">
 <meta property="article:published_time" content="2024-03-10T00:17:46.000Z">
-<meta property="article:modified_time" content="2024-03-15T01:41:26.715Z">
+<meta property="article:modified_time" content="2024-11-01T09:10:14.831Z">
 <meta property="article:author" content="Aubrey Han">
 <meta property="article:tag" content="GCP">
 <meta property="article:tag" content="存储">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100414080562.jpg">
+<meta name="twitter:image" content="https://home.aubreyhan.net:9000/blogpic/17100414080562.jpg">
 
 
 <link rel="canonical" href="https://aubreyhan.net/posts/7e702d3c.html">
@@ -232,7 +232,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-15 09:41:26" itemprop="dateModified" datetime="2024-03-15T09:41:26+08:00">2024-03-15</time>
+      <time title="修改时间：2024-11-01 17:10:14" itemprop="dateModified" datetime="2024-11-01T17:10:14+08:00">2024-11-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,11 +269,11 @@
 </ul>
 <p>&emsp;&emsp;可以通过几种方式赋予权限：</p>
 <h3 id="GCE-服务账号"><a href="#GCE-服务账号" class="headerlink" title="GCE 服务账号"></a>GCE 服务账号</h3><p>&emsp;&emsp;如果是在GCP虚机（gce）挂载gcs，并且已在虚机启用服务账号，最简单的方法是直接对服务账号赋权。</p>
-<h4 id="GCE-默认服务账号"><a href="#GCE-默认服务账号" class="headerlink" title="GCE 默认服务账号"></a>GCE 默认服务账号</h4><p>&emsp;&emsp;如果使用gce默认服务账号，默认配置对gcs只有只读权限：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100414080562.jpg"></p>
-<p>&emsp;&emsp;所以如果使用gce默认服务账号，并需要读写权限，需要对其进行自定义配置：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100416084861.jpg"></p>
-<p>&emsp;&emsp;另，在需要挂载的bucket对默认服务账号赋予权限：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100417821805.jpg"></p>
-<h4 id="自定义服务账号"><a href="#自定义服务账号" class="headerlink" title="自定义服务账号"></a>自定义服务账号</h4><p>&emsp;&emsp;自定义服务账号更加灵活。<br>&emsp;&emsp;创建一个服务账号：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17100422906570.jpg"></p>
-<p>&emsp;&emsp;然后在gcs对该服务账号赋权：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101196088052.jpg"></p>
+<h4 id="GCE-默认服务账号"><a href="#GCE-默认服务账号" class="headerlink" title="GCE 默认服务账号"></a>GCE 默认服务账号</h4><p>&emsp;&emsp;如果使用gce默认服务账号，默认配置对gcs只有只读权限：<br><img src="https://home.aubreyhan.net:9000/blogpic/17100414080562.jpg"></p>
+<p>&emsp;&emsp;所以如果使用gce默认服务账号，并需要读写权限，需要对其进行自定义配置：<br><img src="https://home.aubreyhan.net:9000/blogpic/17100416084861.jpg"></p>
+<p>&emsp;&emsp;另，在需要挂载的bucket对默认服务账号赋予权限：<br><img src="https://home.aubreyhan.net:9000/blogpic/17100417821805.jpg"></p>
+<h4 id="自定义服务账号"><a href="#自定义服务账号" class="headerlink" title="自定义服务账号"></a>自定义服务账号</h4><p>&emsp;&emsp;自定义服务账号更加灵活。<br>&emsp;&emsp;创建一个服务账号：<br><img src="https://home.aubreyhan.net:9000/blogpic/17100422906570.jpg"></p>
+<p>&emsp;&emsp;然后在gcs对该服务账号赋权：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101196088052.jpg"></p>
 <p>&emsp;&emsp;再用做gce服务账号即可。</p>
 <h3 id="无服务账号"><a href="#无服务账号" class="headerlink" title="无服务账号"></a>无服务账号</h3><p>&emsp;&emsp;如果是非GCP虚机，或不希望通过gce服务账号赋权，可以通过如下方式配置权限：</p>
 <h4 id="应用默认凭据"><a href="#应用默认凭据" class="headerlink" title="应用默认凭据"></a>应用默认凭据</h4><p>&emsp;&emsp;通过以下命令使用具备权限的用户登录</p>
@@ -284,12 +284,12 @@
 <p>&emsp;&emsp;或在挂载时直接通过参数 –key-file指定key文件</p>
 <h2 id="挂载方式"><a href="#挂载方式" class="headerlink" title="挂载方式"></a>挂载方式</h2><h3 id="静态挂载"><a href="#静态挂载" class="headerlink" title="静态挂载"></a>静态挂载</h3><p>&emsp;&emsp;gcsfuse的基本使用方法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcsfuse BUCKET_NAME MOUNT_POINT</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;注意，bucket名不要天街gs:&#x2F;&#x2F;等前缀。<br>&emsp;&emsp;如下是使用示例，~&#x2F;mnt是提前创建的mount point，挂载前，里边为空，挂载后，可以看到对应bucket的内容：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101305569933.jpg"><br>&emsp;&emsp;卸载已挂载的gcs如同卸载普通文件系统，使用umount即可：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101351009637.jpg"></p>
+<p>&emsp;&emsp;注意，bucket名不要天街gs:&#x2F;&#x2F;等前缀。<br>&emsp;&emsp;如下是使用示例，~&#x2F;mnt是提前创建的mount point，挂载前，里边为空，挂载后，可以看到对应bucket的内容：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101305569933.jpg"><br>&emsp;&emsp;卸载已挂载的gcs如同卸载普通文件系统，使用umount即可：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101351009637.jpg"></p>
 <h3 id="动态挂载"><a href="#动态挂载" class="headerlink" title="动态挂载"></a>动态挂载</h3><p>&emsp;&emsp;gcsfuse还提供了一种批量挂载的方式——动态挂载。<br>&emsp;&emsp;动态挂载时，无需指定bucket，会自动将有权限的bucket自动到mount point，每个bucket会自动载mount point下创建一个目录。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcsfuse MOUNT_POINT</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;如下创建3个bucket：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101354798834.jpg"></p>
-<p>&emsp;&emsp;其中fuse001及fuse002赋予服务账号<a href="mailto:&#100;&#101;&#x6d;&#111;&#115;&#97;&#x40;&#x68;&#x79;&#x2d;&#50;&#48;&#50;&#52;&#x30;&#x33;&#x30;&#56;&#x2d;&#x30;&#48;&#x31;&#46;&#x69;&#x61;&#x6d;&#x2e;&#103;&#115;&#101;&#x72;&#118;&#105;&#x63;&#x65;&#x61;&#99;&#99;&#x6f;&#x75;&#110;&#x74;&#x2e;&#99;&#111;&#109;">&#100;&#101;&#x6d;&#111;&#115;&#97;&#x40;&#x68;&#x79;&#x2d;&#50;&#48;&#50;&#52;&#x30;&#x33;&#x30;&#56;&#x2d;&#x30;&#48;&#x31;&#46;&#x69;&#x61;&#x6d;&#x2e;&#103;&#115;&#101;&#x72;&#118;&#105;&#x63;&#x65;&#x61;&#99;&#99;&#x6f;&#x75;&#110;&#x74;&#x2e;&#99;&#111;&#109;</a>存储读写权限，fuser没有赋权。<br>&emsp;&emsp;现将此服务账号的key作为环境变量，然后动态挂载：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101359814264.jpg"></p>
-<p>&emsp;&emsp;可以看到fuse001和fuse002被正常挂载，但fuse003没有挂载。<br>&emsp;&emsp;同样，卸载时，只需卸载根mount point，所有bucket都将被卸载：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17101360919781.jpg"></p>
+<p>&emsp;&emsp;如下创建3个bucket：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101354798834.jpg"></p>
+<p>&emsp;&emsp;其中fuse001及fuse002赋予服务账号<a href="mailto:&#x64;&#101;&#109;&#x6f;&#115;&#x61;&#x40;&#x68;&#121;&#x2d;&#x32;&#48;&#x32;&#52;&#x30;&#x33;&#48;&#x38;&#x2d;&#x30;&#48;&#49;&#x2e;&#x69;&#x61;&#109;&#46;&#x67;&#x73;&#x65;&#x72;&#118;&#x69;&#99;&#101;&#97;&#99;&#x63;&#111;&#117;&#110;&#116;&#46;&#x63;&#111;&#x6d;">&#x64;&#101;&#109;&#x6f;&#115;&#x61;&#x40;&#x68;&#121;&#x2d;&#x32;&#48;&#x32;&#52;&#x30;&#x33;&#48;&#x38;&#x2d;&#x30;&#48;&#49;&#x2e;&#x69;&#x61;&#109;&#46;&#x67;&#x73;&#x65;&#x72;&#118;&#x69;&#99;&#101;&#97;&#99;&#x63;&#111;&#117;&#110;&#116;&#46;&#x63;&#111;&#x6d;</a>存储读写权限，fuser没有赋权。<br>&emsp;&emsp;现将此服务账号的key作为环境变量，然后动态挂载：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101359814264.jpg"></p>
+<p>&emsp;&emsp;可以看到fuse001和fuse002被正常挂载，但fuse003没有挂载。<br>&emsp;&emsp;同样，卸载时，只需卸载根mount point，所有bucket都将被卸载：<br><img src="https://home.aubreyhan.net:9000/blogpic/17101360919781.jpg"></p>
 <h3 id="自动挂载"><a href="#自动挂载" class="headerlink" title="自动挂载"></a>自动挂载</h3><p>&emsp;&emsp;gscfuse会注入mount命令，所以可以通过修改fstab实现开机自动挂载。方式如下：</p>
 <h4 id="fstab修改"><a href="#fstab修改" class="headerlink" title="fstab修改"></a>fstab修改</h4><p>&emsp;&emsp;在fstab添加如下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my-bucket /mount/point gcsfuse rw,_netdev,allow_other,uid=1001,gid=1001</span><br></pre></td></tr></table></figure>
@@ -301,26 +301,26 @@
 <li>rw：读写方式挂载</li>
 <li>_netdev：等待网络就绪后挂载</li>
 <li>allow_other：允许其他用户（非root）挂载</li>
-<li>uid&#x3D;1001,gid&#x3D;1001：挂载用户的uid和gid（可以用id user查看）<br>&emsp;&emsp;如下查找uid&#x2F;gid并修改&#x2F;etc&#x2F;fstab：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104159923212.jpg"></li>
+<li>uid&#x3D;1001,gid&#x3D;1001：挂载用户的uid和gid（可以用id user查看）<br>&emsp;&emsp;如下查找uid&#x2F;gid并修改&#x2F;etc&#x2F;fstab：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104159923212.jpg"></li>
 </ul>
-<h4 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h4><p>&emsp;&emsp;如之前描述，挂载gcs时需要权限配置，通过fstab挂载也是一样。<br>&emsp;&emsp;当gce已经配置服务账号，并具备相关权限，虚机启动时会自动使用服务账号的权限并挂载gcs:<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104167804143.jpg"><br>&emsp;&emsp;但是，如果gce没有配置服务账号&#x2F;服务账号权限不够&#x2F;非gcp虚机等无法使用服务账号时，如果获得默认凭据后重启虚机，却发现没有自动挂载：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104171325069.jpg"><br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104173915412.jpg"></p>
-<p>&emsp;&emsp;产生这个问题的原因是，执行获取应用默认凭据命令时，获得的凭据保存在执行此命令的当前用户目录下。而虚机启动过程中，通过fstab自动挂载文件系统时，是root用户，所以是在root用户目录下查找凭据。<br>&emsp;&emsp;知道原因解决就简单了，使用root用户获取凭据，可以看到凭据保存在root用户目录下：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104177183955.jpg"><br>&emsp;&emsp;再次重启虚机检查，可以看到已正确挂载：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104178525507.jpg"></p>
+<h4 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h4><p>&emsp;&emsp;如之前描述，挂载gcs时需要权限配置，通过fstab挂载也是一样。<br>&emsp;&emsp;当gce已经配置服务账号，并具备相关权限，虚机启动时会自动使用服务账号的权限并挂载gcs:<br><img src="https://home.aubreyhan.net:9000/blogpic/17104167804143.jpg"><br>&emsp;&emsp;但是，如果gce没有配置服务账号&#x2F;服务账号权限不够&#x2F;非gcp虚机等无法使用服务账号时，如果获得默认凭据后重启虚机，却发现没有自动挂载：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104171325069.jpg"><br><img src="https://home.aubreyhan.net:9000/blogpic/17104173915412.jpg"></p>
+<p>&emsp;&emsp;产生这个问题的原因是，执行获取应用默认凭据命令时，获得的凭据保存在执行此命令的当前用户目录下。而虚机启动过程中，通过fstab自动挂载文件系统时，是root用户，所以是在root用户目录下查找凭据。<br>&emsp;&emsp;知道原因解决就简单了，使用root用户获取凭据，可以看到凭据保存在root用户目录下：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104177183955.jpg"><br>&emsp;&emsp;再次重启虚机检查，可以看到已正确挂载：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104178525507.jpg"></p>
 <h1 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h1><h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><p>&emsp;&emsp;gcsfuse支持参数设置，使用方式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcsfuse GLOBAL_OPTIONS BUCKET_NAME MOUNT_POINT</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;通过GLOBAL_OPTIONS指定挂载参数，具体可参见：<br>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://cloud.google.com/storage/docs/gcsfuse-cli?hl=zh-cn">gcsfuse参数</a><br>&emsp;&emsp;通过参数可以精细化管理gcsfuse</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>&emsp;&emsp;目录在对象存储中是一个虚拟的概念，作为对象文件名的前缀。所以使用gcsfuse挂载时会有不同.<br>&emsp;&emsp;首先直接在gcs里创建一个文件夹dir01并上传一个文件：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104607049046.jpg"></p>
-<p>&emsp;&emsp;然后上传一个带文件的目录dir02到gcs（不提前在gcs创建目录）：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104609731371.jpg"></p>
-<p>&emsp;&emsp;在gcs可以看到dir02:<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104609955763.jpg"></p>
-<p>&emsp;&emsp;回到虚机，去列目录及子目录：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104611530911.jpg"><br>&emsp;&emsp;只看到了dir01内容，却没看到dir02.<br>&emsp;&emsp;导致此情况的原因是，通过上传方式自动创建的目录，叫做隐式定义目录，gcsfuse挂载后，无法列出隐式定义目录的内容。<br>&emsp;&emsp;解决方法是，gcsfuse使用时加上–implicit-dirs参数：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104614299229.jpg"></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>&emsp;&emsp;目录在对象存储中是一个虚拟的概念，作为对象文件名的前缀。所以使用gcsfuse挂载时会有不同.<br>&emsp;&emsp;首先直接在gcs里创建一个文件夹dir01并上传一个文件：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104607049046.jpg"></p>
+<p>&emsp;&emsp;然后上传一个带文件的目录dir02到gcs（不提前在gcs创建目录）：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104609731371.jpg"></p>
+<p>&emsp;&emsp;在gcs可以看到dir02:<br><img src="https://home.aubreyhan.net:9000/blogpic/17104609955763.jpg"></p>
+<p>&emsp;&emsp;回到虚机，去列目录及子目录：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104611530911.jpg"><br>&emsp;&emsp;只看到了dir01内容，却没看到dir02.<br>&emsp;&emsp;导致此情况的原因是，通过上传方式自动创建的目录，叫做隐式定义目录，gcsfuse挂载后，无法列出隐式定义目录的内容。<br>&emsp;&emsp;解决方法是，gcsfuse使用时加上–implicit-dirs参数：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104614299229.jpg"></p>
 <p>&emsp;&emsp;这样即可正常显示隐式定义目录的内容。</p>
-<h2 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h2><p>&emsp;&emsp;gcsfuse使用缓存目录存放临时文件，默认情况下使用&#x2F;tmp目录。也可以通过参数–temp-dir指定自定义目录。<br>&emsp;&emsp;此处创建一个100M分区并挂载到&#x2F;temp：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104637348965.jpg"></p>
-<p>&emsp;&emsp;将该目录作为gcsfuse的缓存目录：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104637748205.jpg"></p>
-<p>&emsp;&emsp;现在创建一个500M的文件：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104627518314.jpg"></p>
-<p>&emsp;&emsp;将该文件拷入gcs挂载目录：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104638399133.jpg"></p>
+<h2 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h2><p>&emsp;&emsp;gcsfuse使用缓存目录存放临时文件，默认情况下使用&#x2F;tmp目录。也可以通过参数–temp-dir指定自定义目录。<br>&emsp;&emsp;此处创建一个100M分区并挂载到&#x2F;temp：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104637348965.jpg"></p>
+<p>&emsp;&emsp;将该目录作为gcsfuse的缓存目录：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104637748205.jpg"></p>
+<p>&emsp;&emsp;现在创建一个500M的文件：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104627518314.jpg"></p>
+<p>&emsp;&emsp;将该文件拷入gcs挂载目录：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104638399133.jpg"></p>
 <p>&emsp;&emsp;出现空间不足错误。<br>&emsp;&emsp;这是因为gcsfuse的原理是读写文件时，先将文件放入本地缓存目录，到落地时间（–stat-cache-ttl参数设置，默认60s）再后台通过http client同步到gcs。所以如果文件大小超过缓存目录剩余空间，就会出现空间不足的错误。</p>
-<h2 id="多虚机挂载"><a href="#多虚机挂载" class="headerlink" title="多虚机挂载"></a>多虚机挂载</h2><p>&emsp;&emsp;同一个gcs可以挂载到多个虚机。<br>&emsp;&emsp;不同于传统DAS&#x2F;NAS&#x2F;SAN存储，多机挂载时gcs文件的管理机制不一样。<br>&emsp;&emsp;对于DAS&#x2F;SAN，服务器&#x2F;虚机识别为本地硬盘，每台服务器&#x2F;虚机各自维护文件系统的映射表（分区表&#x2F;superblock&#x2F;inode等），所以多机挂载时，需要多台服务器&#x2F;虚机之间通过仲裁机制（windows cluster&#x2F;oracle RAC&#x2F;AIX HACMP&#x2F;Hadoop HDFS等）对每台服务器&#x2F;虚机发出的操作指令进行排序同步等处理，保证不出现脑裂。<br>&emsp;&emsp;而对于NAS，服务器&#x2F;虚机并不直接操作硬盘，而是发出指令由NAS系统处理。<br>&emsp;&emsp;而gcs存在本地缓存，造成本地和gcs之间异步文件处理，所以对同一个文件的操作，需要靠锁来管理。<br>&emsp;&emsp;再创建一台vm（vm02）并通过gcsfuse挂载fuse001,创建文件，两边可以同时看到:<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104660006877.jpg"></p>
-<p>&emsp;&emsp;现在vm01使用vi打开文件并随便写入内容保持打开状态：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104660911139.jpg"></p>
-<p>&emsp;&emsp;再到vm02使用vi 打开并写入：<br><img src="https://cdn.jsdelivr.net/gh/AubreyHan/blogimg/17104662006461.jpg"></p>
+<h2 id="多虚机挂载"><a href="#多虚机挂载" class="headerlink" title="多虚机挂载"></a>多虚机挂载</h2><p>&emsp;&emsp;同一个gcs可以挂载到多个虚机。<br>&emsp;&emsp;不同于传统DAS&#x2F;NAS&#x2F;SAN存储，多机挂载时gcs文件的管理机制不一样。<br>&emsp;&emsp;对于DAS&#x2F;SAN，服务器&#x2F;虚机识别为本地硬盘，每台服务器&#x2F;虚机各自维护文件系统的映射表（分区表&#x2F;superblock&#x2F;inode等），所以多机挂载时，需要多台服务器&#x2F;虚机之间通过仲裁机制（windows cluster&#x2F;oracle RAC&#x2F;AIX HACMP&#x2F;Hadoop HDFS等）对每台服务器&#x2F;虚机发出的操作指令进行排序同步等处理，保证不出现脑裂。<br>&emsp;&emsp;而对于NAS，服务器&#x2F;虚机并不直接操作硬盘，而是发出指令由NAS系统处理。<br>&emsp;&emsp;而gcs存在本地缓存，造成本地和gcs之间异步文件处理，所以对同一个文件的操作，需要靠锁来管理。<br>&emsp;&emsp;再创建一台vm（vm02）并通过gcsfuse挂载fuse001,创建文件，两边可以同时看到:<br><img src="https://home.aubreyhan.net:9000/blogpic/17104660006877.jpg"></p>
+<p>&emsp;&emsp;现在vm01使用vi打开文件并随便写入内容保持打开状态：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104660911139.jpg"></p>
+<p>&emsp;&emsp;再到vm02使用vi 打开并写入：<br><img src="https://home.aubreyhan.net:9000/blogpic/17104662006461.jpg"></p>
 <p>&emsp;&emsp;出现报错。<br>&emsp;&emsp;因为gcs作为对象存储，对同一个文件的多写没有仲裁机制，就会出现冲突。</p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&emsp;&emsp;gcsfuse是一个方便易用的工具，实现了在虚机文件系统对gcs直接增删改查。并且现在GCP已整体提供对gcsfuse的技术支持。<br>&emsp;&emsp;使用过程中需注意如下事项：</p>
 <ul>
