@@ -13,3 +13,8 @@
   git add .
   git commit -m 'message'
   git push
+5、将已安装好的HEXO目录的所有文件拷贝到此目录，然后同步到github
+
+# 其他电脑部署
+1、将github同步到本地
+
