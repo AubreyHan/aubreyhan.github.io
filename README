@@ -1,0 +1,15 @@
+# github准备
+1、创建一个分支，并设置为默认分支
+2、本地执行：git clone github:...  folder，将该分支clone到本地
+3、（第一次配置需要执行），删除所有文件，并创建.gitignore，内容如下：
+  .DS_Store
+  Thumbs.db
+  db.json
+  *.log
+  node_modules/
+  public/
+  .deploy*/
+4、执行如下命令同步到github：
+  git add .
+  git commit -m 'message'
+  git push
