@@ -22,10 +22,13 @@
   npm install hexo-cli -g 
 4、在hexo目录下执行：
   npm i
+5、如果找不到hexo命令，使用如下替代：
+  npx hexo
 
 # 使用hexo
 1、执行git pull拉取最新内容
 2、写blog并发布
 3、push到github
+
 
 
