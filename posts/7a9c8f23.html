@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aubreyhan.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&emsp;&emsp;上一篇谈了本地文件处理。本地文件处理虽然方便，但收到很多方面制约，例如文件大小、文件内容等，另外网络传输也可能导致不成功。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini入门系列（3）——在线文件处理">
+<meta property="og:url" content="https://aubreyhan.net/posts/7a9c8f23.html">
+<meta property="og:site_name" content="Reid爸的小菜地">
+<meta property="og:description" content="&emsp;&emsp;上一篇谈了本地文件处理。本地文件处理虽然方便，但收到很多方面制约，例如文件大小、文件内容等，另外网络传输也可能导致不成功。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318093833731.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318103135664.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318103487733.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/Xnip%20Helper%202024-11-17%2010.36.23.png">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318112560881.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318121396571.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17318122387886.jpg">
+<meta property="article:published_time" content="2024-11-17T03:02:51.000Z">
+<meta property="article:modified_time" content="2024-12-25T10:04:52.745Z">
+<meta property="article:author" content="Aubrey Han">
+<meta property="article:tag" content="GCP">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://home.aubreyhan.net:9000/blogpic/17318093833731.jpg">
+
+
+<link rel="canonical" href="https://aubreyhan.net/posts/7a9c8f23.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aubreyhan.net/posts/7a9c8f23.html","path":"posts/7a9c8f23.html","title":"Gemini入门系列（3）——在线文件处理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Gemini入门系列（3）——在线文件处理 | Reid爸的小菜地</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Reid爸的小菜地</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8ECloud-Storage%E5%AF%BC%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">从Cloud Storage导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Youtube%E8%A7%86%E9%A2%91%E9%93%BE%E6%8E%A5"><span class="nav-number">2.</span> <span class="nav-text">Youtube视频链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E7%BD%91%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">通用网址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Aubrey Han"
+      src="/images/1.gif">
+  <p class="site-author-name" itemprop="name">Aubrey Han</p>
+  <div class="site-description" itemprop="description">生活、技术、杂谈，想到什么写什么的大杂烩</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aubreyhan.net/posts/7a9c8f23.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.gif">
+      <meta itemprop="name" content="Aubrey Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reid爸的小菜地">
+      <meta itemprop="description" content="生活、技术、杂谈，想到什么写什么的大杂烩">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Gemini入门系列（3）——在线文件处理 | Reid爸的小菜地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Gemini入门系列（3）——在线文件处理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-17 11:02:51" itemprop="dateCreated datePublished" datetime="2024-11-17T11:02:51+08:00">2024-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-25 18:04:52" itemprop="dateModified" datetime="2024-12-25T18:04:52+08:00">2024-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GCP/" itemprop="url" rel="index"><span itemprop="name">GCP</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GCP/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&emsp;&emsp;上一篇谈了本地文件处理。本地文件处理虽然方便，但收到很多方面制约，例如文件大小、文件内容等，另外网络传输也可能导致不成功。</p>
+<span id="more"></span>
+<p>&emsp;&emsp;为了解决此问题，Gemini提供了多种在线文件的处理方式：<br><img src="https://home.aubreyhan.net:9000/blogpic/17318093833731.jpg"></p>
+<p>&emsp;&emsp;特别是002模型开始，可以直接处理公开url和Youtube，大大方便了使用。</p>
+<h1 id="从Cloud-Storage导入"><a href="#从Cloud-Storage导入" class="headerlink" title="从Cloud Storage导入"></a>从Cloud Storage导入</h1><p>&emsp;&emsp;Cloud Storage（GCS）是GCP提供的对象服务，和Gemini有良好的整合，需要处理的文件放入GCS，在Gemini处理是最方便的方式，如下在console选择从Cloud Storage导入处理一张GCS的图片：<br><img src="https://home.aubreyhan.net:9000/blogpic/17318103135664.jpg"><br><img src="https://home.aubreyhan.net:9000/blogpic/17318103487733.jpg"></p>
+<p>&emsp;&emsp;同样，可以获取处理Cloud Storage文件的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import vertexai</span><br><span class="line">from vertexai.generative_models import GenerativeModel, Part, SafetySetting</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def generate():</span><br><span class="line">    vertexai.init(project=&quot;ai-demo-440003&quot;, location=&quot;us-central1&quot;)</span><br><span class="line">    model = GenerativeModel(</span><br><span class="line">        &quot;gemini-1.5-flash-002&quot;,</span><br><span class="line">    )</span><br><span class="line">    responses = model.generate_content(</span><br><span class="line">        [image1, &quot;&quot;&quot;请描述上图内容&quot;&quot;&quot;],</span><br><span class="line">        generation_config=generation_config,</span><br><span class="line">        safety_settings=safety_settings,</span><br><span class="line">        stream=True,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    for response in responses:</span><br><span class="line">        print(response.text, end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">image1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;image/jpeg&quot;,</span><br><span class="line">    uri=&quot;gs://gemini-demo-bucket-001/1.jpg&quot;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">generation_config = &#123;</span><br><span class="line">    &quot;max_output_tokens&quot;: 8192,</span><br><span class="line">    &quot;temperature&quot;: 1,</span><br><span class="line">    &quot;top_p&quot;: 0.95,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">safety_settings = [</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">generate()</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;此代码中，用了如下部分定义Cloud Storage导入文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">image1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;image/jpeg&quot;,</span><br><span class="line">    uri=&quot;gs://gemini-demo-bucket-001/1.jpg&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Youtube视频链接"><a href="#Youtube视频链接" class="headerlink" title="Youtube视频链接"></a>Youtube视频链接</h1><p>&emsp;&emsp;001模型虽然支持Youtube视频，但是限制必须是自己组织上传的内容，002放开了这个限制，只要是公开视频，都可放入Gemini处理。<br>&emsp;&emsp;Youtube视频链接处理很简单，点解选项然后填入链接url即可：<br><img src="https://home.aubreyhan.net:9000/blogpic/Xnip%20Helper%202024-11-17%2010.36.23.png" alt="Xnip Helper 2024-11-17 10.36.23"></p>
+<p>&emsp;&emsp;根据视频长短，处理时间不一样：<br><img src="https://home.aubreyhan.net:9000/blogpic/17318112560881.jpg"></p>
+<p>&emsp;&emsp;同样，在获取的代码里：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import vertexai</span><br><span class="line">from vertexai.generative_models import GenerativeModel, Part, SafetySetting</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def generate():</span><br><span class="line">    vertexai.init(project=&quot;ai-demo-440003&quot;, location=&quot;us-central1&quot;)</span><br><span class="line">    model = GenerativeModel(</span><br><span class="line">        &quot;gemini-1.5-flash-002&quot;,</span><br><span class="line">    )</span><br><span class="line">    responses = model.generate_content(</span><br><span class="line">        [video1, &quot;&quot;&quot;请描述视频内容&quot;&quot;&quot;],</span><br><span class="line">        generation_config=generation_config,</span><br><span class="line">        safety_settings=safety_settings,</span><br><span class="line">        stream=True,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    for response in responses:</span><br><span class="line">        print(response.text, end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">video1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;video/*&quot;,</span><br><span class="line">    uri=&quot;https://www.youtube.com/watch?v=r5HFLkNrbIU&quot;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">generation_config = &#123;</span><br><span class="line">    &quot;max_output_tokens&quot;: 8192,</span><br><span class="line">    &quot;temperature&quot;: 1,</span><br><span class="line">    &quot;top_p&quot;: 0.95,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">safety_settings = [</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">generate()</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如下代码定义了使用Youtube链接的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">video1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;video/*&quot;,</span><br><span class="line">    uri=&quot;https://www.youtube.com/watch?v=r5HFLkNrbIU&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="通用网址"><a href="#通用网址" class="headerlink" title="通用网址"></a>通用网址</h1><p>&emsp;&emsp;如果上传到GCS或者Youtube不方便，希望能处理非Google环境的文件，从002开始，Gemini可以处理通用网址。客户可将文件上传至自己使用方便的网络服务，然后将网址传递给Gemini即可。<br>&emsp;&emsp;当然这个方式会有些限制，例如一些视频网站，公开网址是播放网址而非文件url，或者一些网盘，提供的网址并非直接文件访问的url，这种方式就无法处理。必须获得真实的文件url。<br>&emsp;&emsp;如下，将第一个例子中的图片放入我在家创建的一个存储，并获取公开访问的url作为通用网址：<br><img src="https://home.aubreyhan.net:9000/blogpic/17318121396571.jpg"></p>
+<p>&emsp;&emsp;让Gemini处理：<br><img src="https://home.aubreyhan.net:9000/blogpic/17318122387886.jpg"></p>
+<p>&emsp;&emsp;代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import vertexai</span><br><span class="line">from vertexai.generative_models import GenerativeModel, Part, SafetySetting</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def generate():</span><br><span class="line">    vertexai.init(project=&quot;ai-demo-440003&quot;, location=&quot;us-central1&quot;)</span><br><span class="line">    model = GenerativeModel(</span><br><span class="line">        &quot;gemini-1.5-flash-002&quot;,</span><br><span class="line">    )</span><br><span class="line">    responses = model.generate_content(</span><br><span class="line">        [image1, &quot;&quot;&quot;请用中文总结以上图片的内容及使用场景&quot;&quot;&quot;],</span><br><span class="line">        generation_config=generation_config,</span><br><span class="line">        safety_settings=safety_settings,</span><br><span class="line">        stream=True,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    for response in responses:</span><br><span class="line">        print(response.text, end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">image1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;image/jpeg&quot;,</span><br><span class="line">    uri=&quot;https://ahts873a.myqnapcloud.com:8010/v1/AUTH_Cloud/demo/1.jpg&quot;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">generation_config = &#123;</span><br><span class="line">    &quot;max_output_tokens&quot;: 8192,</span><br><span class="line">    &quot;temperature&quot;: 1,</span><br><span class="line">    &quot;top_p&quot;: 0.95,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">safety_settings = [</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">    SafetySetting(</span><br><span class="line">        category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,</span><br><span class="line">        threshold=SafetySetting.HarmBlockThreshold.OFF</span><br><span class="line">    ),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">generate()</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;通用网址的处理部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">image1 = Part.from_uri(</span><br><span class="line">    mime_type=&quot;image/jpeg&quot;,</span><br><span class="line">    uri=&quot;https://ahts873a.myqnapcloud.com:8010/v1/AUTH_Cloud/demo/1.jpg&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&emsp;&emsp;从以上例子可以看到，Gemini可以通过多种方式处理在线文件，Part.from_uri类是处理在线文档的基础方法。<br>&emsp;&emsp;合理使用在线文档，可大大方便Gemini的使用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+  });
+</script>
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+          <div class="post-tags">
+              <a href="/tags/GCP/" rel="tag"># GCP</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/ffceb411.html" rel="prev" title="Gemini入门系列（2）——本地文件处理">
+                  <i class="fa fa-angle-left"></i> Gemini入门系列（2）——本地文件处理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/8670afbc.html" rel="next" title="Gemini入门系列（4）——Grounding">
+                  Gemini入门系列（4）——Grounding <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Aubrey Han</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
