@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aubreyhan.net/posts/51fdaedf.html</loc>
+    
+    <lastmod>2024-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aubreyhan.net/posts/7b70a115.html</loc>
     
     <lastmod>2024-12-26</lastmod>
@@ -130,7 +139,7 @@
 
   <url>
     <loc>https://aubreyhan.net/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,35 +147,35 @@
   
   <url>
     <loc>https://aubreyhan.net/tags/GCP/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/tags/AI/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/tags/GKE/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/tags/%E5%AD%98%E5%82%A8/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -175,35 +184,35 @@
   
   <url>
     <loc>https://aubreyhan.net/categories/GCP/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/categories/GCP/AI/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/categories/GCP/GKE/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aubreyhan.net/categories/%E6%8A%80%E6%9C%AF/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
