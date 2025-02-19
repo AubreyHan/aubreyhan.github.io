@@ -19,40 +19,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aubreyhan.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="&emsp;&emsp;随着IPv6的普及，越来越多GCP的用户开始使用IPv6.在GCP，IPv6的配置和IPv4略有不同。本文简单讲解如何在GCP虚机配置IPv6。">
+    <meta name="description" content="&emsp;&emsp;随着Gemini-2.0-Flash的GA，一些新Feature也陆续公布。其中一个比较比较有用的就是Global Endpoint。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在GCP虚机使用IPv6">
-<meta property="og:url" content="https://aubreyhan.net/posts/6253a717.html">
+<meta property="og:title" content="Gemini入门系列（7）——GlobalEndpoint">
+<meta property="og:url" content="https://aubreyhan.net/posts/bd1e66d7.html">
 <meta property="og:site_name" content="Reid爸的小菜地">
-<meta property="og:description" content="&emsp;&emsp;随着IPv6的普及，越来越多GCP的用户开始使用IPv6.在GCP，IPv6的配置和IPv4略有不同。本文简单讲解如何在GCP虚机配置IPv6。">
+<meta property="og:description" content="&emsp;&emsp;随着Gemini-2.0-Flash的GA，一些新Feature也陆续公布。其中一个比较比较有用的就是Global Endpoint。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091775023408.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091778609032.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091805444989.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091811590095.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091813860179.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091814871148.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091816301891.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091818389691.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091819314349.jpg">
-<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17091821470478.jpg">
-<meta property="article:published_time" content="2024-02-28T14:37:03.000Z">
-<meta property="article:modified_time" content="2024-12-25T10:04:52.825Z">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17399616960353.jpg">
+<meta property="og:image" content="https://home.aubreyhan.net:9000/blogpic/17399631148985.jpg">
+<meta property="article:published_time" content="2025-02-19T10:25:01.000Z">
+<meta property="article:modified_time" content="2025-02-19T11:21:11.105Z">
 <meta property="article:author" content="Aubrey Han">
 <meta property="article:tag" content="GCP">
-<meta property="article:tag" content="网络">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://home.aubreyhan.net:9000/blogpic/17091775023408.jpg">
+<meta name="twitter:image" content="https://home.aubreyhan.net:9000/blogpic/17399616960353.jpg">
 
 
-<link rel="canonical" href="https://aubreyhan.net/posts/6253a717.html">
+<link rel="canonical" href="https://aubreyhan.net/posts/bd1e66d7.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aubreyhan.net/posts/6253a717.html","path":"posts/6253a717.html","title":"在GCP虚机使用IPv6"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aubreyhan.net/posts/bd1e66d7.html","path":"posts/bd1e66d7.html","title":"Gemini入门系列（7）——GlobalEndpoint"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>在GCP虚机使用IPv6 | Reid爸的小菜地</title>
+<title>Gemini入门系列（7）——GlobalEndpoint | Reid爸的小菜地</title>
   
 
 
@@ -125,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">网络配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89IPv6%E7%9A%84%E8%99%9A%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">创建带有IPv6的虚机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B8%A6%E5%86%85%E9%83%A8IPv6%E7%9A%84%E8%99%9A%E6%9C%BA"><span class="nav-number">2.1.</span> <span class="nav-text">创建带内部IPv6的虚机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B8%A6%E5%A4%96%E9%83%A8IPv6%E7%9A%84%E8%99%9A%E6%9C%BA"><span class="nav-number">2.2.</span> <span class="nav-text">创建带外部IPv6的虚机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8Console%E4%BD%BF%E7%94%A8Global-Endpoint"><span class="nav-number">1.</span> <span class="nav-text">在Console使用Global Endpoint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8Ccode%E9%87%8C%E4%BD%BF%E7%94%A8Global-Endpoint"><span class="nav-number">2.</span> <span class="nav-text">在Ccode里使用Global Endpoint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aubreyhan.net/posts/6253a717.html">
+    <link itemprop="mainEntityOfPage" href="https://aubreyhan.net/posts/bd1e66d7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.gif">
@@ -191,12 +183,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="在GCP虚机使用IPv6 | Reid爸的小菜地">
+      <meta itemprop="name" content="Gemini入门系列（7）——GlobalEndpoint | Reid爸的小菜地">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在GCP虚机使用IPv6
+          Gemini入门系列（7）——GlobalEndpoint
         </h1>
 
         <div class="post-meta-container">
@@ -206,15 +198,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-02-28 22:37:03" itemprop="dateCreated datePublished" datetime="2024-02-28T22:37:03+08:00">2024-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-12-25 18:04:52" itemprop="dateModified" datetime="2024-12-25T18:04:52+08:00">2024-12-25</time>
+      <time title="创建时间：2025-02-19 18:25:01 / 修改时间：19:21:11" itemprop="dateCreated datePublished" datetime="2025-02-19T18:25:01+08:00">2025-02-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,11 +208,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+          <a href="/categories/GCP/" itemprop="url" rel="index"><span itemprop="name">GCP</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/%E4%BA%91%E8%AE%A1%E7%AE%97/" itemprop="url" rel="index"><span itemprop="name">云计算</span></a>
+          <a href="/categories/GCP/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
         </span>
     </span>
 
@@ -239,34 +225,16 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>&emsp;&emsp;随着IPv6的普及，越来越多GCP的用户开始使用IPv6.在GCP，IPv6的配置和IPv4略有不同。本文简单讲解如何在GCP虚机配置IPv6。</p>
+    <div class="post-body" itemprop="articleBody"><p>&emsp;&emsp;随着Gemini-2.0-Flash的GA，一些新Feature也陆续公布。其中一个比较比较有用的就是Global Endpoint。</p>
 <span id="more"></span>
-<p>&emsp;&emsp;如同IPv4，GCP的IPv6也分为内部地址和外部地址两种。启用IPv6的地方有两个：vpc和subnet，很容易造成疑惑。下边就具体介绍不同类型IPv6的创建方式</p>
-<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><p>&emsp;&emsp;创建vpc时，可以选择是否启用IPv6：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091775023408.jpg"></p>
-<p>&emsp;&emsp;这里有几个点需要注意：</p>
-<ul>
-<li>IPv6是vpc固有属性，创建后无法修改（取消或启用）</li>
-<li>在vpc启用的IPv6为内部地址</li>
-<li>vpc启用IPv6后，subnet必须使用cusome（自定义）模式<br>&emsp;&emsp;接下来创建subnet：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091778609032.jpg"></li>
-</ul>
-<p>&emsp;&emsp;这里subnet可以选择单栈或双栈，同样，选择后无法修改，如要更换，只能删除subnet重建；另外，这里IPv6可以选择外网或内网，因为我们已经在vpc启用了IPv6。我们在此处选择内网，并创建vpc。<br>&emsp;&emsp;下边，在创建一个不启用IPv6的vpc，然后在subnet配置IPv6：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091805444989.jpg"></p>
-<p>&emsp;&emsp;此时，subnet仍然可以配置双栈，但是IPv6只能配置外网。<br>&emsp;&emsp;简单总结一下，vpc和subnet配置IPv6的区别如下：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091811590095.jpg"></p>
-<h2 id="创建带有IPv6的虚机"><a href="#创建带有IPv6的虚机" class="headerlink" title="创建带有IPv6的虚机"></a>创建带有IPv6的虚机</h2><h3 id="创建带内部IPv6的虚机"><a href="#创建带内部IPv6的虚机" class="headerlink" title="创建带内部IPv6的虚机"></a>创建带内部IPv6的虚机</h3><p>&emsp;&emsp;创建过程如同普通虚机，只是在网络配置时，选择对应带内部IPv6的subnet，并选择IPv6分配方式：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091813860179.jpg"></p>
-<p>&emsp;&emsp;创建完成，虚机已具备内部IPv6地址：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091814871148.jpg"></p>
-<p>&emsp;&emsp;通过ssh进入虚机内部检查，也可看到网卡上已具备此地址，但是ping外部地址不通（DNS通过内网所以可以解析）：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091816301891.jpg"></p>
-<h3 id="创建带外部IPv6的虚机"><a href="#创建带外部IPv6的虚机" class="headerlink" title="创建带外部IPv6的虚机"></a>创建带外部IPv6的虚机</h3><p>&emsp;&emsp;创建方式相同，只是需要选择有外部IPv6的subnet：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091818389691.jpg"></p>
-<p>&emsp;&emsp;创建完成，虚机具备外部IPv6地址：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091819314349.jpg"></p>
-<p>&emsp;&emsp;进入虚机内部检查，可以在网卡上看到IPv6地址并且可以和外网相通：<br><img src="https://home.aubreyhan.net:9000/blogpic/17091821470478.jpg"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;通过以上简单示例，可以总结如下几条：</p>
-<ul>
-<li>如果需要给虚机配置IPv6，需要在网络启用，并且subnet必须选择自定义模式</li>
-<li>如果vpc已启用IPv6，subnet可以选择内部或外部IPv6；如果vpc没有启用IPv6，subnet只能选择外部IPv6</li>
-<li>对于同一个subnet，内部和外部IPv6只能二选一</li>
-<li>创建虚机时，选择的subnet决定了其IPv6的模式，无需也不能在OS层面对网络进行配置</li>
-<li>外部IPv6地址不同于外部IPv4的地址；外部IPv4地址不在虚机网卡，而是在一个隐形的LB上，所以在虚机的网卡上看不到外部IPv4地址；但外部IPv6地址是直接分配到subnet并且附加到虚机，所以在虚机的网卡上可以看到外部IPv6地址。当预留外部IPv6地址时，因为IPv6在subnet，所以在vpc的预留内部地址可以看到，但实际是外部地址，可能引起误会。</li>
-<li>如果需要查询IPv6的网关，可以通过如下命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/gateway-ipv6 -H &quot;Metadata-Flavor: Google&quot;</span><br></pre></td></tr></table></figure>
-&emsp;&emsp;<br>&emsp;&emsp;</li>
-</ul>
+<p>&emsp;&emsp;如大家所知，Gemini使用时需要指定Region，如果该Region资源紧张，就会出现429错误。要想使用多个Region，只能在code里轮训，使用起来比较麻烦。现在Gloabl EndPoint推出后，直接使用Global Endpoint，无需客户端的复杂配置。<br>&emsp;&emsp;目前支持Global Endpoint的模型有：<br>&emsp;&emsp;* Gemini-1.5-Flash-002<br>&emsp;&emsp;* Gemini-1.5-Pro-002<br>&emsp;&emsp;* Gemini-2.0-Flash-001</p>
+<h1 id="在Console使用Global-Endpoint"><a href="#在Console使用Global-Endpoint" class="headerlink" title="在Console使用Global Endpoint"></a>在Console使用Global Endpoint</h1><p>&emsp;&emsp;在Console使用Global Endpoint很简单，直接在Region选择的地方选择Gloabl即可，以Gemini-1.5-Flash-002，如下选择：<br><img src="https://home.aubreyhan.net:9000/blogpic/17399616960353.jpg"></p>
+<p>&emsp;&emsp;<br>&emsp;&emsp;如果模型选择Gemini-2.0-Flash-001，看不到该选项，但可以通过code里location的设置实现。</p>
+<h1 id="在Ccode里使用Global-Endpoint"><a href="#在Ccode里使用Global-Endpoint" class="headerlink" title="在Ccode里使用Global Endpoint"></a>在Ccode里使用Global Endpoint</h1><p>&emsp;&emsp;code的修改很简单，只需要把location设置为global即可，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from google import genai</span><br><span class="line">from google.genai.types import HttpOptions</span><br><span class="line"></span><br><span class="line">client = genai.Client(http_options=HttpOptions(api_version=&quot;v1&quot;), </span><br><span class="line">                      vertexai=True, </span><br><span class="line">                      project=&quot;ai-demo-440003&quot;, </span><br><span class="line">                      location=&quot;global&quot;)</span><br><span class="line">response = client.models.generate_content(</span><br><span class="line">    model=&quot;gemini-2.0-flash-001&quot;,</span><br><span class="line">    contents=&quot;How does AI work?&quot;,</span><br><span class="line">)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;运行结果：<br><img src="https://home.aubreyhan.net:9000/blogpic/17399631148985.jpg"></p>
+<p>&emsp;&emsp;可以正确运行。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&emsp;&emsp;Global Endpoint集中了全球所有Region资源，在一定程度上降低了429的出错概率，也无需客户在code里实现Region轮询，大大简化了code编写。<br>&emsp;&emsp;目前，Global Endpoint还在Public Preview阶段，所以只支持3个模型（测试版模型不支持），另外如下功能目前不支持：<br>&emsp;&emsp;* Tuning<br>&emsp;&emsp;* Batch<br>&emsp;&emsp;* Context Caching<br>&emsp;&emsp;* RAG<br>&emsp;&emsp;* DRZ&#x2F;VPC-SC&#x2F;ML-Processing<br>&emsp;&emsp;* Provision Thoughput<br>&emsp;&emsp;客户可以根据实际需求决定是否选择Gloabl Endpoint。</p>
 
     </div>
 
@@ -289,18 +257,18 @@
 <div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
           <div class="post-tags">
               <a href="/tags/GCP/" rel="tag"># GCP</a>
-              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/posts/51fdaedf.html" rel="prev" title="Gemini入门系列（6）——新Gemini API">
+                  <i class="fa fa-angle-left"></i> Gemini入门系列（6）——新Gemini API
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/7e702d3c.html" rel="next" title="通过gcsfuse使用gcs">
-                  通过gcsfuse使用gcs <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
